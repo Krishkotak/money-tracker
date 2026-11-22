@@ -1,6 +1,6 @@
 # Personal Money Tracker
 
-A local Mac application for importing monthly HSBC, SBI Card, and Kotak statements, reviewing new transactions, and reporting category spending. It does not send financial data to an AI service.
+A local Mac application for importing monthly bank-h, bank-s Card, and bank-k statements, reviewing new transactions, and reporting category spending. It does not send financial data to an AI service.
 
 ## Current build step
 
@@ -12,9 +12,9 @@ Requires Python 3.9 or newer and the project dependencies. With `uv` installed:
 
 ```sh
 uv sync
-uv run money-tracker-parse hsbc /path/to/HSBC-statement.xls
-uv run money-tracker-parse sbi "/path/to/SBI-card-statement.pdf"
-uv run money-tracker-parse kotak /path/to/Kotak-statement.csv
+uv run money-tracker-parse bank-h /path/to/bank-h-statement.xls
+uv run money-tracker-parse bank-s "/path/to/bank-s-card-statement.pdf"
+uv run money-tracker-parse bank-k /path/to/bank-k-statement.csv
 ```
 
 The command prints the parsed period, row counts, totals, and validation findings. It does not print the transaction ledger or write statement contents to another file.
@@ -44,4 +44,4 @@ Then open `http://127.0.0.1:8765/` on this Mac. The first visit prompts for stat
 - Reports recalculate from saved transactions and decisions. They are not frozen snapshots.
 - The default report is the newest calendar month with data, from the first of that month through its latest imported date. Any range within imported history can be selected.
 - Confirmed incoming reimbursement rules offset their configured spending category. Unmatched outgoing payments stay in review with Auto / Cab suggested; unmatched incoming payments have no Auto / Cab suggestion. See [categorization-rules.md](docs/categorization-rules.md).
-- SBI purchase rows have no unique transaction ID. Overlap matching uses card, date, description, amount, direction, and occurrence count. Ambiguous matches must be reviewed before exclusion.
+- bank-s purchase rows have no unique transaction ID. Overlap matching uses card, date, description, amount, direction, and occurrence count. Ambiguous matches must be reviewed before exclusion.

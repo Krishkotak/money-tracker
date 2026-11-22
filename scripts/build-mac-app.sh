@@ -5,7 +5,8 @@ APP_DIR="$PROJECT_DIR/Money Tracker.app"
 CONTENTS="$APP_DIR/Contents"
 /bin/rm -rf "$APP_DIR"
 /bin/mkdir -p "$CONTENTS/MacOS"
-/usr/bin/swiftc -framework AppKit "$PROJECT_DIR/scripts/Launcher.swift" -o "$CONTENTS/MacOS/Launcher"
+/bin/mkdir -p "$PROJECT_DIR/.build/swift-module-cache"
+/usr/bin/swiftc -parse-as-library -module-cache-path "$PROJECT_DIR/.build/swift-module-cache" -framework AppKit "$PROJECT_DIR/scripts/Launcher.swift" -o "$CONTENTS/MacOS/Launcher"
 cat > "$CONTENTS/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

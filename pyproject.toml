@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-money-tracker"
+version = "0.1.0"
+description = "Local statement import and monthly categorization tools"
+requires-python = ">=3.9"
+dependencies = [
+  "openpyxl>=3.1.5,<4",
+  "pypdf>=5.9,<6",
+]
+
+[project.scripts]
+money-tracker-parse = "money_tracker.cli:main"
+money-tracker-import = "money_tracker.cli:import_main"
+money-tracker = "money_tracker.web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

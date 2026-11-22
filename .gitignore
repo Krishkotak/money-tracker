@@ -1,0 +1,19 @@
+# Private source statements and transaction-level research
+/*.pdf
+/*.xls
+/*.xlsx
+/*.csv
+/research/*.sqlite
+/research/statement-format-and-extraction.md
+/docs/architecture.md
+
+# Local runtime state
+/.venv/
+/__pycache__/
+/**/*.py[cod]
+/.DS_Store
+/instance/
+/data/
+/src/money_tracker/private_config.py
+/Money Tracker.app/
+*.egg-info/
